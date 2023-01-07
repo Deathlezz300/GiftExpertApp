@@ -1,28 +1,18 @@
 import React from 'react';
 import '../assets/styles/Listado.css';
 import { Card } from './Card';
-import { useEffect,useState } from 'react';
-import { getGifs } from '../helpers/getGif';
+import { useFetchGifs } from '../hooks/useFetchGifs';
 
 export const Listado = ({elemento}) => {
 
-  const [gifs, setGifs] = useState([]);
-
-  useEffect(()=>{
-    getGifs(elemento).then(data=>{
-      setGifs(data);
-    })
-  },[elemento]);
-
-
-
+  const {images, isLoading}=useFetchGifs(elemento);
   return (
     <>
         <div className='box-lista'>
             <h3 className='titulo-lista'>{elemento}</h3>
             <div className='grid-cards'>
-              {gifs.map((gif)=>{
-                return <Card key={gif.id} gif={gif}/>
+              {images.map((gif)=>{
+                return <Card key={gif.id} estado={isLoading} gif={gif}/>
               })}
             </div>
         </div>

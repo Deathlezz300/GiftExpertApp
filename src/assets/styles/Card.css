@@ -1,0 +1,14 @@
+.nombre-gif{
+    color: white;
+    font-weight: 700;
+    padding-top: 1rem;
+}
+
+.card-gif{
+    width: 100%;
+}
+
+.imagen-gif{
+    width: 100%;
+    height: 180px;
+}

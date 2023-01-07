@@ -13,7 +13,6 @@ export const getGifs=async(categoria)=>{
         title:img.title,
         img:img.images.original.url
     }));
-    console.log(gifs);
     return gifs;
 }
 
